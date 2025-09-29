@@ -77,7 +77,57 @@ double number;
     }
    }
    void n_7(){
+    char sim = 'A';
+
+    std::cout << "Enter simvol: ";
+    std::cin >> sim;
+
+    if (sim == 'A'){
+        std::cout << "Correct!" << std::endl;
+    }
+        else if (sim != 'A'){
+            std::cout << "Incorrect" << std::endl;
+        }
+    }
+   void n_8() {
+    int num1, num2;
+
+  std::cout << "Enter number one: ";
+  std::cin >> num1;
+
+  std::cout << "Enter number two: ";
+  std::cin >> num2;
+
+  if (num1 > 0 && num2 > 0) {
+    std::cout << "Both numbers are positive" << std::endl;
+  } else {
+    std::cout << "Both numbers are positive" << std::endl;
+  }
+   }
+   void n_9(){
+    int num1, num2;
+
+    std::cout << "Enter number one: ";
+    std::cin >> num1;
+
+    std::cout << "Enter number two: ";
+    std::cin >> num2;
+
+    if (num1 == 0 || num2 == 0) {
+        std::cout << "At least one of the numbers equals zero" << std::endl;
+    } else {
+        std::cout << "None of the numbers is zero" << std::endl;
+    }
+   }
+   void n_10(){
+    int number;
     
+    std::cout << "Enter number: ";
+    std::cin >> number;
+    
+    if (!(number == 10)) {
+        std::cout << "The number is not equal to 10";
+    }
    }
 int main() {
     n_1();
@@ -86,5 +136,9 @@ int main() {
     n_4();
     n_5();
     n_6();
+    n_7();
+    n_8();
+    n_9();
+    n_10();
     return 0;
 }
