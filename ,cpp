@@ -1,0 +1,198 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void task1() {
+    int number;
+    cout << "Enter a number to check for evenness: ";
+    cin >> number;
+    
+    cout << "The number " << number << " is " 
+         << (number % 2 == 0 ? "Even" : "Odd") << endl;
+}
+
+void task2() {
+    int a, b;
+    cout << "Enter the first number: ";
+    cin >> a;
+    cout << "Enter the second number: ";
+    cin >> b;
+    
+    cout << "The maximum number is: " 
+         << (a > b ? a : b) << endl;
+}
+
+void task3() {
+    bool value;
+    cout << "Enter true(1) or false(0): ";
+    cin >> value;
+    
+    cout << "Result: " 
+         << (value ? "Yes" : "No") << endl;
+}
+
+void task4() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+    
+    cout << "The number is " 
+         << (number > 0 ? "positive" 
+          : (number < 0 ? "negative" : "zero")) << endl;
+}
+
+void task5() {
+    char symbol;
+    cout << "Enter a symbol: ";
+    cin >> symbol;
+   
+    cout << "Result: " 
+         << (symbol >= 'a' && symbol <= 'z' ? symbol - 32 : symbol) << endl;
+}
+
+void task6() {
+    const int LIMIT = 50000;
+    int amount;
+    
+    cout << "Enter the withdrawal amount: ";
+    cin >> amount;
+    
+    cout << ((amount > 0 && amount <= LIMIT && amount % 100 == 0) ? "Operation successful"
+        : (amount <= 0) ? "Amount must be positive"
+        : (amount % 100 != 0) ? "Amount must be a multiple of 100"
+        : "Exceeds withdrawal limit") << endl;
+}
+
+void task7() {
+    int secretNumber = 42; 
+    int guess;
+    
+    cout << "Guess a number between 1 and 100:" << endl;
+    
+    while (true) {
+        cout << "Enter your guess: ";
+        cin >> guess;
+        
+        if (guess < secretNumber) {
+            cout << "Too low" << endl;
+        } else if (guess > secretNumber) {
+            cout << "Too high" << endl;
+        } else {
+            cout << "Correct!" << endl;
+            break;
+        }
+    }
+}
+
+void task8() {
+    double tariffs[] = {0, 1.5, 2.0, 3.5}; 
+    
+    int cityCode;
+    double duration;
+    
+    cout << "Call Cost Calculation" << endl;
+    cout << "City codes:" << endl;
+    cout << "1 - Moscow" << endl;
+    cout << "2 - Saint Petersburg" << endl;
+    cout << "3 - Other cities" << endl;
+    
+    cout << "Enter city code: ";
+    cin >> cityCode;
+    
+    cout << "Enter call duration (minutes): ";
+    cin >> duration;
+    
+    if (cityCode < 1 || cityCode > 3) {
+        cout << "Error: Invalid city code!" << endl;
+        return;
+    }
+    
+    double cost = duration * tariffs[cityCode];
+    cout << "Call cost: " << cost << " rubles" << endl;
+}
+
+void task9() {
+    double a, b, c;
+    
+    cout << "Enter lengths of three segments: ";
+    cin >> a >> b >> c;
+    
+    if (a <= 0 || b <= 0 || c <= 0) {
+        cout << "Error: lengths must be positive!" << endl;
+        return;
+    }
+    
+    if (a + b <= c || a + c <= b || b + c <= a) {
+        cout << "Cannot form a triangle!" << endl;
+        return;
+    }
+    
+    cout << "Triangle can be formed. Determining its type..." << endl;
+    
+    if (a == b && b == c) {
+        cout << "Equilateral triangle" << endl;
+    } else if (a == b || b == c || a == c) {
+        cout << "Isosceles triangle" << endl;
+        
+        if (a < b) swap(a, b);
+        if (a < c) swap(a, c);
+        if (b < c) swap(b, c);
+        
+        if (a*a == b*b + c*c) {
+            cout << "Also right triangle" << endl;
+        } else if (a*a > b*b + c*c) {
+            cout << "Also obtuse triangle" << endl;
+        } else {
+            cout << "Also acute triangle" << endl;
+        }
+    } else {
+        if (a < b) swap(a, b);
+        if (a < c) swap(a, c);
+        if (b < c) swap(b, c);
+        
+        if (a*a == b*b + c*c) {
+            cout << "Right triangle" << endl;
+        } else if (a*a > b*b + c*c) {
+            cout << "Obtuse triangle" << endl;
+        } else {
+            cout << "Acute triangle" << endl;
+        }
+    }
+}
+
+void task10() {
+    const string correctLogin = "admin";
+    const string correctPassword = "password123";
+    
+    string login, password;
+    
+    cout << "Login System" << endl;
+    cout << "Enter your login: ";
+    cin >> login;
+    
+    cout << "Enter your password: ";
+    cin >> password;
+    
+    if (login == correctLogin && password == correctPassword) {
+        cout << "Access granted!" << endl;
+    } else if (login != correctLogin) {
+        cout << "Error: Incorrect login!" << endl;
+    } else {
+        cout << "Error: Incorrect password!" << endl;
+    }
+}
+
+int main() {
+    task1();
+    task2();
+    task3();
+    task4();
+    task5();
+    task6();
+    task7();
+    task8();
+    task9();
+    task10();
+    
+    return 0;
+}
